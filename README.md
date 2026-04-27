@@ -33,12 +33,12 @@ Este projeto adota padrões rigorosos de engenharia de software para garantir es
 
 ## 📜 Diretrizes de Contribuição e IA (Copilot/Cursor)
 
-A inteligência de engenharia deste projeto está centralizada na pasta `..github`. Todo código gerado por IA ou por desenvolvedores deve obedecer estritamente aos seguintes manuais:
+A inteligência de engenharia deste projeto está centralizada na pasta `.github`. Todo código gerado por IA ou por desenvolvedores deve obedecer estritamente aos seguintes manuais:
 
-- [Contexto do Negócio (`..github/MenuDigitalContext.md`)](../..github/MenuDigitalContext.md): Entenda as entidades (Estabelecimento, Menu, Categoria, Produto, Variação) e regras de negócio.
-- [Diretrizes de Front-end (`..github/FrontEndInstructions.md`)](../..github/FrontEndInstructions.md): Padrões de Clean Code, acessibilidade e UX/UI.
-- [Diretrizes de Back-end (`..github/BackendInstructions.md`)](../..github/BackendInstructions.md): Arquitetura, testes, segurança e design de APIs.
-- [Padrões de Commit (`..github/CommitsInstructions.md`)](../..github/CommitsInstructions.md): Uso obrigatório de **Semantic Commits**.
+- [Contexto do Negócio (`.github/MenuDigitalContext.md`)](.github/MenuDigitalContext.md): Entenda as entidades (Estabelecimento, Menu, Categoria, Produto, Variação) e regras de negócio.
+- [Diretrizes de Front-end (`.github/FrontEndInstructions.md`)](.github/FrontEndInstructions.md): Padrões de Clean Code, acessibilidade e UX/UI.
+- [Diretrizes de Back-end (`.github/BackendInstructions.md`)](.github/BackendInstructions.md): Arquitetura, testes, segurança e design de APIs.
+- [Padrões de Commit (`.github/CommitsInstructions.md`)](.github/CommitsInstructions.md): Uso obrigatório de **Semantic Commits**.
 
 ### 📝 Padrão de Commits
 
