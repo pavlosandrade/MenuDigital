@@ -51,5 +51,5 @@
 - [x] Implementar Global Exception Handling (Tratamento global de exceções não previstas da API).
 
 ## 🚀 Fase 2: Módulos de Cardápio
-- [ ] Implementar os endpoints e Commands para `Menus` e `Categories`.
+- [x] Implementar os endpoints e Commands para `Menus` e `Categories`.
 - [ ] Implementar os endpoints e Commands para `Products` (com relação aos addons).

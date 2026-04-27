@@ -37,5 +37,7 @@ app.UseExceptionHandler();
 
 // Registro das rotas (Minimal APIs)
 app.MapTenantEndpoints();
+app.MapMenuEndpoints();
+app.MapCategoryEndpoints();
 
 app.Run();

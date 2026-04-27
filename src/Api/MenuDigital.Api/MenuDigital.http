@@ -26,3 +26,37 @@ Content-Type: application/json
   "name": "A",
   "slug": "a"
 }
+
+### ========================
+### MÓDULO DE CARDÁPIOS (MENUS)
+### ========================
+
+### Criar um Menu de Almoço
+# IMPORTANTE: Troque o X-Tenant-ID pelo ID do restaurante gerado anteriormente.
+POST {{MenuDigital.Api_HostAddress}}/api/menus
+Content-Type: application/json
+X-Tenant-ID: 0fd28413-0b71-4807-8d2f-65657b386ba8
+
+{
+  "name": "Cardápio de Almoço",
+  "startTime": "11:00:00",
+  "endTime": "15:00:00"
+}
+
+### ========================
+### MÓDULO DE CATEGORIAS
+### ========================
+
+### Criar uma Categoria
+# IMPORTANTE 1: X-Tenant-ID com o ID do seu Restaurante
+# IMPORTANTE 2: No JSON, troque o "menuId" pelo ID que foi gerado na criação do Cardápio de Almoço.
+POST {{MenuDigital.Api_HostAddress}}/api/categories
+Content-Type: application/json
+X-Tenant-ID: 0fd28413-0b71-4807-8d2f-65657b386ba8
+
+{
+  "menuId": "7f63f627-60d4-4fc8-a284-36ec5d6df0fe",
+  "name": "Bebidas",
+  "description": "Refrigerantes, sucos naturais e cervejas.",
+  "displayOrder": 1
+}
