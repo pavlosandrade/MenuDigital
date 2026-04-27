@@ -1,0 +1,28 @@
+@MenuDigital.Api_HostAddress = http://localhost:5180
+
+### Criar um novo Restaurante (Tenant)
+POST {{MenuDigital.Api_HostAddress}}/api/tenants
+Content-Type: application/json
+
+{
+  "name": "Pizzaria do Mario",
+  "slug": "mario-pizza"
+}
+
+### Tentar criar o mesmo Restaurante (Deve retornar erro de validação/conflito)
+POST {{MenuDigital.Api_HostAddress}}/api/tenants
+Content-Type: application/json
+
+{
+  "name": "Pizzaria do Mario 2",
+  "slug": "mario-pizza"
+}
+
+### Tentar criar Restaurante inválido (Deve ser pego pelo nosso PipelineBehavior)
+POST {{MenuDigital.Api_HostAddress}}/api/tenants
+Content-Type: application/json
+
+{
+  "name": "A",
+  "slug": "a"
+}

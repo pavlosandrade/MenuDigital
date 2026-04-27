@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="../../tests/Api.IntegrationTests/MenuDigital.Api.IntegrationTests.csproj" />
+  <Project Path="../../tests/Api.UnitTests/MenuDigital.Api.UnitTests.csproj" />
+  <Project Path="MenuDigital.Api/MenuDigital.Api.csproj" />
+  <Project Path="MenuDigital.Application/MenuDigital.Application.csproj" />
+  <Project Path="MenuDigital.Domain/MenuDigital.Domain.csproj" />
+  <Project Path="MenuDigital.Infrastructure/MenuDigital.Infrastructure.csproj" />
+</Solution>
