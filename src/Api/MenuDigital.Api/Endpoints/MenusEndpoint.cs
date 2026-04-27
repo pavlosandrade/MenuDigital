@@ -1,5 +1,6 @@
 using MediatR;
 using MenuDigital.Application.Menus.Commands.CreateMenu;
+using MenuDigital.Application.Menus.Queries.GetMenuCatalog;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MenuDigital.Api.Endpoints;
@@ -30,5 +31,25 @@ public static class MenusEndpoint
             // Status 201 (Created) é a convenção REST correta para criação.
             return Results.Created($"/api/menus/{result.Value}", new { id = result.Value });
         });
+        // 📝 [GET] /api/menus/{id}/catalog - Retorna o cardápio completo com categorias, produtos e adicionais
+        group.MapGet("/{id:guid}/catalog", async (
+            [FromRoute] Guid id,
+            [FromServices] IMediator mediator,
+            CancellationToken cancellationToken) =>
+        {
+            var query = new GetMenuCatalogQuery(id);
+            var result = await mediator.Send(query, cancellationToken);
+
+            if (result.IsFailure)
+            {
+                return Results.NotFound(new { error = result.Error.Code, message = result.Error.Message });
+            }
+
+            return Results.Ok(result.Value);
+        })
+        .WithName("GetMenuCatalog")
+        .WithDescription("Retorna a árvore completa do cardápio pronto para o cliente.")
+        .Produces<MenuCatalogDto>(StatusCodes.Status200OK)
+        .ProducesProblem(StatusCodes.Status404NotFound);
     }
 }

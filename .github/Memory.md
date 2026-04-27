@@ -4,7 +4,7 @@
 
 ## 📍 Status Atual
 **Data da última atualização:** 27 de Abril de 2026
-**Fase Atual:** Definição final da stack tecnológica e refinamento das diretrizes arquiteturais.
+**Fase Atual:** Fase 3 - Consultas de Catálogo (Queries CQRS)
 
 ## ✅ O que já fizemos (Histórico de Ações)
 - [x] **Leitura e Análise de Contexto:** Processados os arquivos de instrução do diretório.
@@ -50,6 +50,24 @@
 - [x] Rodar a API e testar o endpoint Minimal API (`POST /api/tenants`).
 - [x] Implementar Global Exception Handling (Tratamento global de exceções não previstas da API).
 
-## 🚀 Fase 2: Módulos de Cardápio
+## 🚀 Fase 2: Módulos de Cardápio (Concluída)
 - [x] Implementar os endpoints e Commands para `Menus` e `Categories`.
-- [x] Implementar os endpoints e Commands para `Products` (com relação aos addons).
+- [x] Implementar os endpoints e Commands para `Products` e `ProductAddons` (com Aggregate Roots).
+- [x] Corrigir bug arquitetural de concorrência e escopo do Global Query Filter no DbContext.
+
+## 🚀 Fase 3: Camada de Leitura (Queries) e Exposição do Catálogo (Concluída)
+- [x] Criar a estrutura base de Queries (DTOs: MenuCatalogDto, CategoryDto, ProductDto, AddonDto).
+- [x] Implementar a `GetMenuCatalogQuery` e seu respectivo Handler (com `.AsNoTracking()` e projeção direta).
+- [x] Criar o endpoint de leitura `GET /api/menus/{id}/catalog` para retornar o cardápio formatado.
+- [x] Refatorar DTOs para compatibilidade com LINQ do EF Core (Object Initializers vs Constructors).
+
+## 🚀 Fase 4: Autenticação, Autorização e Gestão de Identidade
+- [ ] Implementar ASP.NET Core Identity ou serviço customizado de Autenticação.
+- [ ] Configurar JWT (JSON Web Tokens) para segurança dos endpoints.
+- [ ] Criar endpoints de Login e Cadastro de Restaurante.
+- [ ] Extrair o `TenantId` automaticamente do Token JWT no `CurrentTenantService`.
+
+## 🚀 Fase 5: WebApp Front-end (Next.js + Tailwind)
+- [ ] Scaffolding do projeto Next.js na pasta `src/Web`.
+- [ ] Implementar Design System base (Cores, Tipografia, Componentes).
+- [ ] Consumir a API de Catálogo e renderizar o cardápio digital responsivo.
