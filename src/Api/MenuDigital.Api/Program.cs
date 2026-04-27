@@ -39,5 +39,6 @@ app.UseExceptionHandler();
 app.MapTenantEndpoints();
 app.MapMenuEndpoints();
 app.MapCategoryEndpoints();
+app.MapProductEndpoints();
 
 app.Run();

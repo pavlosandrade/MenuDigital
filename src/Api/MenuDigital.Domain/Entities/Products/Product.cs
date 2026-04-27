@@ -57,21 +57,21 @@ public sealed class Product : EntityBase
         UpdateTimestamp();
     }
 
-    public Result AddAddon(string name, string? description, decimal price, bool isRequired, int maxSelection, int displayOrder)
+    public Result<ProductAddon> AddAddon(string name, string? description, decimal price, bool isRequired, int maxSelection, int displayOrder)
     {
         if (string.IsNullOrWhiteSpace(name))
-            return Result.Failure(new Error("ProductAddon.NameRequired", "O nome do adicional é obrigatório."));
+            return Result.Failure<ProductAddon>(new Error("ProductAddon.NameRequired", "O nome do adicional é obrigatório."));
             
         if (price < 0)
-            return Result.Failure(new Error("ProductAddon.InvalidPrice", "O preço do adicional não pode ser negativo."));
+            return Result.Failure<ProductAddon>(new Error("ProductAddon.InvalidPrice", "O preço do adicional não pode ser negativo."));
 
         if (maxSelection < 1 && !isRequired)
-            return Result.Failure(new Error("ProductAddon.InvalidMaxSelection", "A seleção máxima deve ser ao menos 1."));
+            return Result.Failure<ProductAddon>(new Error("ProductAddon.InvalidMaxSelection", "A seleção máxima deve ser ao menos 1."));
 
         var addon = new ProductAddon(TenantId, Id, name, description, price, isRequired, maxSelection, displayOrder);
         _addons.Add(addon);
         
         UpdateTimestamp();
-        return Result.Success();
+        return Result.Success(addon);
     }
 }

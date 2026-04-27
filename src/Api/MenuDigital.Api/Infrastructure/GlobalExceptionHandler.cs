@@ -30,7 +30,7 @@ public sealed class GlobalExceptionHandler : IExceptionHandler
         {
             Status = StatusCodes.Status500InternalServerError,
             Title = "Erro Interno do Servidor",
-            Detail = "Um erro inesperado ocorreu na nossa infraestrutura. Por favor, tente novamente em instantes.",
+            Detail = "Ocorreu um erro interno no servidor. Nossa equipe já foi notificada.",
             Type = "https://datatracker.ietf.org/doc/html/rfc7231#section-6.6.1",
             Instance = httpContext.Request.Path
         };

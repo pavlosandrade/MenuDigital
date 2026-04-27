@@ -52,4 +52,4 @@
 
 ## 🚀 Fase 2: Módulos de Cardápio
 - [x] Implementar os endpoints e Commands para `Menus` e `Categories`.
-- [ ] Implementar os endpoints e Commands para `Products` (com relação aos addons).
+- [x] Implementar os endpoints e Commands para `Products` (com relação aos addons).

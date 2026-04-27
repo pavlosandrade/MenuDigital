@@ -25,6 +25,10 @@ public class ProductConfiguration : IEntityTypeConfiguration<Product>
                .HasForeignKey(a => a.ProductId)
                .OnDelete(DeleteBehavior.Cascade); // Se apagar o produto, apaga os adicionais
 
+        // Garante que o EF Core saiba ler/escrever na coleção privada _addons
+        builder.Metadata.FindNavigation(nameof(Product.Addons))
+               ?.SetPropertyAccessMode(PropertyAccessMode.Field);
+
         // HasAddons é calculada, não precisa ir pro banco
         builder.Ignore(p => p.HasAddons);
     }

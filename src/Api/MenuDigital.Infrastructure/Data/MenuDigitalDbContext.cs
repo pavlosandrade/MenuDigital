@@ -35,13 +35,12 @@ public class MenuDigitalDbContext : DbContext, IMenuDigitalDbContext
         // ISOLAMENTO MULTI-TENANT (Global Query Filter)
         // ==========================================
         // Essas regras garantem que desenvolvedores não vazem dados de outro restaurante por acidente.
-        var tenantId = _tenantService.GetTenantId();
-
         // Aplicamos o filtro em todas as entidades atreladas a um Tenant.
-        modelBuilder.Entity<RestaurantSettings>().HasQueryFilter(e => e.TenantId == tenantId);
-        modelBuilder.Entity<Menu>().HasQueryFilter(e => e.TenantId == tenantId);
-        modelBuilder.Entity<Category>().HasQueryFilter(e => e.TenantId == tenantId);
-        modelBuilder.Entity<Product>().HasQueryFilter(e => e.TenantId == tenantId);
-        modelBuilder.Entity<ProductAddon>().HasQueryFilter(e => e.TenantId == tenantId);
+        // O lambda DEVE chamar _tenantService.GetTenantId() diretamente para ser dinâmico por request.
+        modelBuilder.Entity<RestaurantSettings>().HasQueryFilter(e => e.TenantId == _tenantService.GetTenantId());
+        modelBuilder.Entity<Menu>().HasQueryFilter(e => e.TenantId == _tenantService.GetTenantId());
+        modelBuilder.Entity<Category>().HasQueryFilter(e => e.TenantId == _tenantService.GetTenantId());
+        modelBuilder.Entity<Product>().HasQueryFilter(e => e.TenantId == _tenantService.GetTenantId());
+        modelBuilder.Entity<ProductAddon>().HasQueryFilter(e => e.TenantId == _tenantService.GetTenantId());
     }
 }

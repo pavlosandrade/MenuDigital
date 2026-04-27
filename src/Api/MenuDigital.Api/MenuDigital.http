@@ -60,3 +60,39 @@ X-Tenant-ID: 0fd28413-0b71-4807-8d2f-65657b386ba8
   "description": "Refrigerantes, sucos naturais e cervejas.",
   "displayOrder": 1
 }
+
+### ========================
+### MÓDULO DE PRODUTOS
+### ========================
+
+### Criar um Produto Base
+# IMPORTANTE 1: X-Tenant-ID com o ID do seu Restaurante
+# IMPORTANTE 2: No JSON, troque o "categoryId" pelo ID que foi gerado na criação da Categoria.
+POST {{MenuDigital.Api_HostAddress}}/api/products
+Content-Type: application/json
+X-Tenant-ID: 0fd28413-0b71-4807-8d2f-65657b386ba8
+
+{
+  "categoryId": "229f3c2c-81b8-46de-abb2-b052d9a65f9f",
+  "name": "Coca-Cola 2 Litros",
+  "description": "Refrigerante de cola bem gelado. Serve a família inteira.",
+  "price": 14.50,
+  "imageUrl": "https://img.com/coca.png",
+  "displayOrder": 1
+}
+
+### Adicionar um Extra (Addon) ao Produto
+# IMPORTANTE: Coloque o ID da Coca-Cola gerada logo acima na ROTA da URL
+# E não esqueça do X-Tenant-ID
+POST {{MenuDigital.Api_HostAddress}}/api/products/ID_DA_COCA_COLA_AQUI/addons
+Content-Type: application/json
+X-Tenant-ID: 0fd28413-0b71-4807-8d2f-65657b386ba8
+
+{
+  "name": "Com Gelo e Limão",
+  "description": "Copo com pedras de gelo e rodelas de limão.",
+  "price": 0.00,
+  "isRequired": false,
+  "maxSelection": 1,
+  "displayOrder": 1
+}
