@@ -20,6 +20,19 @@ This agent enforces **semantic commits** on this repository. Every commit messag
 
 ---
 
+## Incremental Development Philosophy
+
+To maintain high code quality and agility, we adhere to an incremental programming strategy:
+
+- **Small Pull Requests**: Break down large features into small, manageable PRs.
+- **Minimum Testable Code**: Each PR should represent the smallest possible unit of work that can be tested and verified.
+- **Always Deployable**: Code must be merged in a state that doesn't break the application. This allows for safe, continuous deployments.
+- **Simplified Review**: Small changes allow reviewers to focus better and provide higher-quality feedback.
+- **Quick Recovery**: If a bug is introduced, reverting or fixing a small change is significantly faster and safer than handling a massive update.
+
+---
+
+
 ## Commit Types
 
 | Type | When to use | Affects versioning |
@@ -96,6 +109,7 @@ remove(legacy): delete unused pages from old portfolio version
 7. Use the body to explain *what changed* and *why*, not how.
 8. Reference related issues or PRs in the footer.
 9. Breaking changes must be indicated with `BREAKING CHANGE:` in the footer.
+10. **Commit Granularity**: Prefer small, frequent commits that represent a single logical change. This makes history easier to follow and PRs easier to review.
 
 ---
 
